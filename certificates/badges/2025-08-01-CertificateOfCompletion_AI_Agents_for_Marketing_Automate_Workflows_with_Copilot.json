@@ -1,0 +1,16 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "BadgeClass",
+  "id": "https://lspironello.github.io/blockcerts-issuer/badges/2025-08-01-CertificateOfCompletion_AI_Agents_for_Marketing_Automate_Workflows_with_Copilot.json",
+  "name": "AI Agents for Marketing: Automate Workflows with Copilot",
+  "description": "Completed the LinkedIn Learning course 'AI Agents for Marketing: Automate Workflows with Copilot'.",
+  "image": "https://lspironello.github.io/blockcerts-issuer/images/ai-agents-marketing.png",
+  "criteria": "https://lspironello.github.io/blockcerts-issuer/criteria/2025-08-01-CertificateOfCompletion_AI_Agents_for_Marketing_Automate_Workflows_with_Copilot.html",
+  "issuer": "https://lspironello.github.io/blockcerts-issuer/issuer-profile.json",
+  "issuedOn": "2025-08-01T21:50:00Z",
+  "tags": [
+    "AI Agents",
+    "Marketing",
+    "Microsoft Copilot"
+  ]
+}
