@@ -94,22 +94,38 @@
             badges.forEach(badge => {
               const li = document.createElement('li');
 
+              // Extract friendly name from filename
+              let friendlyName = badge
+                .replace(/^[a-z]+-/, '')            // remove prefix like 'linkedin-'
+                .replace(/^\d{4}-\d{2}-\d{2}-/, '') // remove date like '2025-08-01-'
+                .replace(/_/g, ' ')                 // underscores to spaces
+                .replace(/-/g, ' ')                 // dashes to spaces
+                .replace(/CertificateOfCompletion/gi, '') // remove repeated phrase
+                .trim();
+
+              const textNode = document.createTextNode(friendlyName + '  ');
+
+              // Build absolute URLs for JSON and PDF
+              const jsonLinkHref = '/blockcerts-issuer/badges/' + badge;
+              const pdfFileName = badge.replace('.json', '.pdf');
+              const pdfLinkHref = '/blockcerts-issuer/certificates/' + pdfFileName;
+
               // JSON link
               const jsonLink = document.createElement('a');
-              jsonLink.href = '../badges/' + badge;
+              jsonLink.href = jsonLinkHref;
               jsonLink.title = 'Badge JSON file';
               jsonLink.target = '_blank';
               jsonLink.style.marginRight = '12px';
               jsonLink.textContent = '🗂️ JSON';
 
               // PDF link
-              const pdfFileName = badge.replace('.json', '.pdf');
               const pdfLink = document.createElement('a');
-              pdfLink.href = '../certificates/' + pdfFileName;
+              pdfLink.href = pdfLinkHref;
               pdfLink.title = 'Certificate PDF file';
               pdfLink.target = '_blank';
               pdfLink.textContent = '📄 PDF';
 
+              li.appendChild(textNode);
               li.appendChild(jsonLink);
               li.appendChild(pdfLink);
               ul.appendChild(li);
