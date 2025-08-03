@@ -1,0 +1,11 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "type": "Issuer",
+  "id": "https://lspironello.github.io/blockcerts-issuer/issuer-profile.json",
+  "name": "Independent Credential Issuer",
+  "url": "https://lspironello.github.io",
+  "email": "lspironello@gmail.com",
+  "description": "This issuer profile was created by an independent learner to verify credentials earned through LinkedIn Learning courses accessed via the public library. The issuer is responsible for the authenticity of the badge content and metadata.",
+  "image": "https://lspironello.github.io/blockcerts-issuer/logo.png"
+}
+
