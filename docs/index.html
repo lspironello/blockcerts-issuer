@@ -94,19 +94,26 @@
             badges.forEach(badge => {
               const li = document.createElement('li');
 
-              // Extract friendly name from filename
+              // Extract date (first 10 chars after prefix and dash)
+              const dateMatch = badge.match(/\d{4}-\d{2}-\d{2}/);
+              const completionDate = dateMatch ? dateMatch[0] : 'Unknown date';
+
               let friendlyName = badge
                 .replace(/^[a-z]+-/, '')            // remove prefix like 'linkedin-'
-                .replace(/^\d{4}-\d{2}-\d{2}-/, '') // remove date like '2025-08-01-'
-                .replace(/_/g, ' ')                 // underscores to spaces
-                .replace(/-/g, ' ')                 // dashes to spaces
-                .replace(/CertificateOfCompletion/gi, '') // remove repeated phrase
+                .replace(/^\d{4}-\d{2}-\d{2}-/, '') // remove date
+                .replace(/_/g, ' ')
+                .replace(/-/g, ' ')
+                .replace(/CertificateOfCompletion/gi, '')
                 .trim();
+
+              // Format display text with date first
+              const displayText = `${completionDate} — ${friendlyName}`;
+
 
               // Debug: log friendly name
               console.log('Friendly name:', friendlyName);
 
-              const textNode = document.createTextNode(friendlyName + '  ');
+              const textNode = document.createTextNode(displayText + '  ');
 
               // Build absolute URLs for JSON and PDF
               const jsonLinkHref = '/blockcerts-issuer/badges/' + badge;
