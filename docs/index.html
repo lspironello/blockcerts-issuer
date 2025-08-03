@@ -103,6 +103,9 @@
                 .replace(/CertificateOfCompletion/gi, '') // remove repeated phrase
                 .trim();
 
+              // Debug: log friendly name
+              console.log('Friendly name:', friendlyName);
+
               const textNode = document.createTextNode(friendlyName + '  ');
 
               // Build absolute URLs for JSON and PDF
@@ -128,6 +131,7 @@
               li.appendChild(textNode);
               li.appendChild(jsonLink);
               li.appendChild(pdfLink);
+
               ul.appendChild(li);
             });
 
