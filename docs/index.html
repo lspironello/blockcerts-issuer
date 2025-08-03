@@ -32,6 +32,7 @@
     a {
       color: #1a0dab;
       text-decoration: none;
+      font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
@@ -89,17 +90,31 @@
             section.appendChild(p);
           } else {
             const ul = document.createElement('ul');
+
             badges.forEach(badge => {
               const li = document.createElement('li');
-              const a = document.createElement('a');
-              // link to the PDF version in certificates folder
+
+              // JSON link
+              const jsonLink = document.createElement('a');
+              jsonLink.href = '../badges/' + badge;
+              jsonLink.title = 'Badge JSON file';
+              jsonLink.target = '_blank';
+              jsonLink.style.marginRight = '12px';
+              jsonLink.textContent = '🗂️ JSON';
+
+              // PDF link
               const pdfFileName = badge.replace('.json', '.pdf');
-              a.href = '../certificates/' + pdfFileName;
-              a.textContent = badge;
-              a.target = '_blank';
-              li.appendChild(a);
+              const pdfLink = document.createElement('a');
+              pdfLink.href = '../certificates/' + pdfFileName;
+              pdfLink.title = 'Certificate PDF file';
+              pdfLink.target = '_blank';
+              pdfLink.textContent = '📄 PDF';
+
+              li.appendChild(jsonLink);
+              li.appendChild(pdfLink);
               ul.appendChild(li);
             });
+
             section.appendChild(ul);
           }
           container.appendChild(section);
